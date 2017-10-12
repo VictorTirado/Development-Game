@@ -56,6 +56,7 @@ bool j1Player::PostUpdate()
 bool j1Player::CleanUp()
 {
 	LOG("Unloading player");
+	SDL_DestroyTexture(graphics);
 	//App->textures->Unload(graphics);
 	//App->collision->EraseCollider(collider);
 
