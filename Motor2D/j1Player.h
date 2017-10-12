@@ -24,9 +24,10 @@ public:
 
 public:
 
-	iPoint startPos = { 0,0 };
+	iPoint startPos = { 20,20 };
 	iPoint position = { 0,0 };
-
+	int speed;
+	Animation* current_animation = nullptr;
 	SDL_Texture* graphics = nullptr;
 	Animation idle;
 	//Collider* collider = nullptr;

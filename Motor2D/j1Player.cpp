@@ -11,16 +11,16 @@
 
 j1Player::j1Player() : j1Module()
 {
-	idle.PushBack({0,0,74,128});
-	idle.PushBack({ 75,1,74,128 });
-	idle.PushBack({ 150,1,74,128 });
-	idle.PushBack({ 224,1,74,128 });
-	idle.PushBack({ 331,1,74,128 });
-	idle.PushBack({ 429,1,74,128 });
-	idle.PushBack({ 1,130,74,128 });
-	idle.PushBack({ 78,130,74,128 });
-	idle.PushBack({ 152,130,74,128 });
-	idle.PushBack({227,130,74,128 });
+	idle.PushBack({ 1,0,74,128});
+	idle.PushBack({ 75,0,74,128 });
+	idle.PushBack({ 150,0,74,128 });
+	idle.PushBack({ 225,0,74,128 });
+	idle.PushBack({ 331,0,74,128 });
+	idle.PushBack({ 430,0,74,128 });
+	idle.PushBack({ 3,129,74,128 });
+	idle.PushBack({ 79,129,74,128 });
+	idle.PushBack({ 152,129,74,128 });
+	idle.PushBack({ 227,129,74,128 });
 	idle.loop = 0.4f;
 
 }
@@ -33,9 +33,10 @@ bool j1Player::Start()
 {
 	bool ret = true;
 	position = startPos;
+	speed = 1;
 	LOG("Loading player textures");
 	
-	graphics = App->tex->Load("Game/player/Player.png");
+	graphics = App->tex->Load("player/Player.png");
 	//collider = App->collision->AddCollider({ position.x, position.y, 27, -48 }, COLLIDER_PLAYER, this);
 	return ret;
 }
@@ -48,6 +49,8 @@ bool j1Player::PreUpdate()
 
 bool j1Player::Update(float dt)
 {
+	bool ret = true;
+	current_animation = &idle;
 	/*if (App->input->GetKey[SDL_SCANCODE_W] == j1KeyState::KEY_REPEAT)
 	{
 	}
@@ -60,7 +63,9 @@ bool j1Player::Update(float dt)
 	if (App->input->GetKey[SDL_SCANCODE_D] == j1KeyState::KEY_REPEAT)
 	{
 	}*/
-	bool ret = true;
+	
+	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
+
 	return ret;
 }
 
