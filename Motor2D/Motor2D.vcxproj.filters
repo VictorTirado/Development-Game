@@ -110,11 +110,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Game\maps\hello2.tmx" />
-    <None Include="..\Game\maps\isometric_grass_and_water.tmx">
-      <Filter>Desenvolupament  ========</Filter>
-    </None>
     <None Include="..\Game\maps\Level1.tmx">
       <Filter>Desenvolupament  ========</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\Game\config.xml" />
+    <Xml Include="..\Game\save_game.xml" />
   </ItemGroup>
 </Project>
