@@ -113,5 +113,8 @@
     <None Include="..\Game\maps\isometric_grass_and_water.tmx">
       <Filter>Desenvolupament  ========</Filter>
     </None>
+    <None Include="..\Game\maps\Level1.tmx">
+      <Filter>Desenvolupament  ========</Filter>
+    </None>
   </ItemGroup>
 </Project>
