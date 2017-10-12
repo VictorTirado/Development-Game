@@ -16,6 +16,7 @@ struct MapLayer
 	unsigned int	height=0;
 	unsigned int* data=NULL;
 	unsigned int size_data = 0;
+	int	visible;
 	~MapLayer() {
 		RELEASE(data);
 	}

@@ -54,7 +54,7 @@
    </properties>
   </tile>
  </tileset>
- <layer name="Capa de Patrones 1" width="50" height="15">
+ <layer name="Capa de Patrones 1" width="50" height="15" visible="1">
   <data>
    <tile gid="30"/>
    <tile gid="30"/>
