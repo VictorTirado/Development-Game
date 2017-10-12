@@ -11,17 +11,21 @@ public:
 	j1Player();
 	~j1Player();
 
+	bool Awake(pugi::xml_node&);
 	bool Start();
-	//update_status Update();
 	bool CleanUp();
+	bool PreUpdate();
+	bool Update(float dt);
+	bool PostUpdate();
 
+	//void OnCollision(Collider* c1, Collider* c2);
 	
 
 public:
 
 	SDL_Texture* graphics = nullptr;
 	//Collider* collider = nullptr;
-	iPoint position;
+	fPoint position;
 
 	
 };
