@@ -1531,7 +1531,7 @@
    <tile gid="27"/>
   </data>
  </layer>
- <layer name="Logic" width="50" height="15" visible="0" opacity="0.48">
+ <layer name="Logic" width="50" height="15" visible="0" opacity="0.01">
   <data>
    <tile gid="31"/>
    <tile gid="0"/>
