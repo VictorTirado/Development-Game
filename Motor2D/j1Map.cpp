@@ -44,7 +44,10 @@ void j1Map::Draw()
 						SDL_Rect tile = tileset_list->data->GetTileRect(layer_list->data->Get(i, j));
 						SDL_Rect* section = &tile;
 						iPoint xy = MapToWorld(i, j);
-						App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
+						if (layer_list->data->visible!=0) {
+							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
+						}
+						//App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
 					}
 				}
 			}
@@ -344,6 +347,7 @@ bool j1Map::LoadLayer(pugi::xml_node& node, MapLayer* layer)
 	layer->name = node.attribute("name").as_string();
 	layer->width = node.attribute("width").as_int();
 	layer->height = node.attribute("height").as_int();
+	layer->visible = node.attribute("visible").as_int();
 
 	layer->data = new uint[layer->width * layer->height];
 
