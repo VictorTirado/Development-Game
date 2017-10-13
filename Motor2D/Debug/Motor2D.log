@@ -1,2 +1,5 @@
-﻿  Motor2D.vcxproj -> C:\Users\Usuario\Documents\GitHub\Development-Game\Debug\Motor 2D.exe
+﻿  j1Player.cpp
+c:\users\usuario\documents\github\development-game\motor2d\j1player.cpp(25): warning C4305: '=': truncamiento de 'float' a 'bool'
+c:\users\usuario\documents\github\development-game\motor2d\j1player.cpp(39): warning C4305: '=': truncamiento de 'float' a 'bool'
+  Motor2D.vcxproj -> C:\Users\Usuario\Documents\GitHub\Development-Game\Debug\Motor 2D.exe
   Motor2D.vcxproj -> C:\Users\Usuario\Documents\GitHub\Development-Game\Debug\Motor 2D.pdb (Partial PDB)

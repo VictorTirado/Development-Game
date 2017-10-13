@@ -11,23 +11,30 @@
 
 j1Player::j1Player() : j1Module()
 {
-	idle.PushBack({ 2,1,75,128});
-	idle.PushBack({ 80,1,75,128 });
-	idle.PushBack({ 165,1,75,128 });
-	idle.PushBack({ 250,1,75,128 });
-	idle.PushBack({ 331,1,75,128 });
-	idle.PushBack({ 413,1,75,128 });
-	idle.PushBack({ 12,133,75,128 });
-	idle.PushBack({ 93,133,75,128 });
-	idle.PushBack({ 173,133,75,128 });
-	idle.PushBack({ 251,133,75,128 });
+	//IDLE
+	idle.PushBack({ 16,1,75,128 });
+	idle.PushBack({ 94,1,75,128 });
+	idle.PushBack({ 180,1,75,128 });
+	idle.PushBack({ 264,1,75,128 });
+	idle.PushBack({ 345,1,75,128 });
+	idle.PushBack({ 426,1,75,128 });
+	idle.PushBack({ 26,133,75,128 });
+	idle.PushBack({ 107,133,75,128 });
+	idle.PushBack({ 187,133,75,128 });
+	idle.PushBack({ 266,133,75,128 });
 	idle.loop = 0.4f;
 
-	run.PushBack({345,133,75,128});
-	run.PushBack({ 424,133,75,128 });
-	/*run.PushBack({ 345,133,75,128 });
-	run.PushBack({ 345,133,75,128 });
-	run.PushBack({ 345,133,75,128 });*/
+	//RUN
+	run.PushBack({351,133,75,128});
+	run.PushBack({ 430,133,75,128 });
+	run.PushBack({ 21,266,75,128 });
+	run.PushBack({ 100,266,75,128 });
+	run.PushBack({ 185,266,75,128 });
+	run.PushBack({ 265,266,75,128 });
+	run.PushBack({ 346,266,75,128 });
+	run.PushBack({ 430,266,75,128 });
+	run.PushBack({ 3,408,75,128 });
+	run.PushBack({ 118,408,75,128 });
 
 	run.loop = 0.4f;
 
@@ -44,7 +51,7 @@ bool j1Player::Start()
 	speed = 1;
 	LOG("Loading player textures");
 	
-	graphics = App->tex->Load("player/Player.png");
+	graphics = App->tex->Load("player/Player2.png");
 	//collider = App->collision->AddCollider({ position.x, position.y, 27, -48 }, COLLIDER_PLAYER, this);
 	return ret;
 }
@@ -62,6 +69,7 @@ bool j1Player::Update(float dt)
 	
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
 	{
+		current_animation = &run;
 		position.x -= 2 * speed;
 	}
 	
