@@ -33,6 +33,7 @@ public:
 	bool CleanUp();
 
 private:
+	int map=0;
 };
 
 #endif // __j1SCENE_H__
