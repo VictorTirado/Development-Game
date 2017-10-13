@@ -38,6 +38,19 @@ j1Player::j1Player() : j1Module()
 
 	run.loop = 0.4f;
 
+	//JUMP
+
+	jump.PushBack({ 639,1,75,128});
+	jump.PushBack({ 731,1,75,128 });
+	jump.PushBack({ 820,1,75,128 });
+	jump.PushBack({ 909,1,75,128 });
+	jump.PushBack({ 566,137,75,128 });
+	jump.PushBack({ 645,137,75,128 });
+	jump.PushBack({ 726,137,75,128 });
+	jump.PushBack({ 812,137,75,128 });
+	jump.PushBack({ 913,137,75,128 });
+	
+
 }
 
 j1Player::~j1Player()
@@ -77,6 +90,11 @@ bool j1Player::Update(float dt)
 	{
 		current_animation = &run;
 		position.x += 2 * speed;
+	}
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
+	{
+		current_animation = &jump;
+		position.y= 2 * speed;
 	}
 	
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));

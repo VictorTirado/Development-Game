@@ -31,6 +31,7 @@ public:
 	SDL_Texture* graphics = nullptr;
 	Animation idle;
 	Animation run;
+	Animation jump;
 	//Collider* collider = nullptr;
 //	fPoint position;
 
