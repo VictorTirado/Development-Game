@@ -30,6 +30,7 @@ public:
 	Animation* current_animation = nullptr;
 	SDL_Texture* graphics = nullptr;
 	Animation idle;
+	Animation run;
 	//Collider* collider = nullptr;
 //	fPoint position;
 

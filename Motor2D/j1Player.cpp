@@ -11,17 +11,25 @@
 
 j1Player::j1Player() : j1Module()
 {
-	idle.PushBack({ 1,0,74,128});
-	idle.PushBack({ 75,0,74,128 });
-	idle.PushBack({ 150,0,74,128 });
-	idle.PushBack({ 225,0,74,128 });
-	idle.PushBack({ 331,0,74,128 });
-	idle.PushBack({ 430,0,74,128 });
-	idle.PushBack({ 3,129,74,128 });
-	idle.PushBack({ 79,129,74,128 });
-	idle.PushBack({ 152,129,74,128 });
-	idle.PushBack({ 227,129,74,128 });
+	idle.PushBack({ 2,1,75,128});
+	idle.PushBack({ 80,1,75,128 });
+	idle.PushBack({ 165,1,75,128 });
+	idle.PushBack({ 250,1,75,128 });
+	idle.PushBack({ 331,1,75,128 });
+	idle.PushBack({ 413,1,75,128 });
+	idle.PushBack({ 12,133,75,128 });
+	idle.PushBack({ 93,133,75,128 });
+	idle.PushBack({ 173,133,75,128 });
+	idle.PushBack({ 251,133,75,128 });
 	idle.loop = 0.4f;
+
+	run.PushBack({345,133,75,128});
+	run.PushBack({ 424,133,75,128 });
+	/*run.PushBack({ 345,133,75,128 });
+	run.PushBack({ 345,133,75,128 });
+	run.PushBack({ 345,133,75,128 });*/
+
+	run.loop = 0.4f;
 
 }
 
@@ -51,18 +59,15 @@ bool j1Player::Update(float dt)
 {
 	bool ret = true;
 	current_animation = &idle;
-	/*if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
-	{
-	}*/
+	
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
 	{
 		position.x -= 2 * speed;
 	}
-	/*if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
-	{
-	}*/
+	
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 	{
+		current_animation = &run;
 		position.x += 2 * speed;
 	}
 	
