@@ -26,7 +26,10 @@ public:
 
 	iPoint startPos = { 20, 1000};
 	iPoint position = { 0,0 };
+	iPoint prevPos = { 0,0 };
 	int speed;
+	int cont = 0;
+	int cont2 = 0;
 	Animation* current_animation = nullptr;
 	SDL_Texture* graphics = nullptr;
 	Animation idle;

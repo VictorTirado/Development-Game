@@ -44,10 +44,13 @@ void j1Map::Draw()
 						SDL_Rect tile = tileset_list->data->GetTileRect(layer_list->data->Get(i, j));
 						SDL_Rect* section = &tile;
 						iPoint xy = MapToWorld(i, j);
+						if (layer_list->data->Get_gid(section)==23) {
+							spawn.x = i;
+							spawn.y = j;
+						}
 						if (layer_list->data->visible!=0) {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
 						}
-						//App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
 					}
 				}
 			}
@@ -359,6 +362,11 @@ bool j1Map::LoadLayer(pugi::xml_node& node, MapLayer* layer)
 	}
 
 	return ret;
+}
+
+uint MapLayer::Get_gid(SDL_Rect* gid) {
+	uint ret = gid->w*gid->y + gid->x;
+	return data[ret];
 }
 
 uint MapLayer::Get(int x, int y) const {

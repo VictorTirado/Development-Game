@@ -21,6 +21,7 @@ struct MapLayer
 		RELEASE(data);
 	}
 	inline uint Get(int x, int y) const;
+	uint Get_gid(SDL_Rect* gid);
 };
 
 	// TODO 6: Short function to get the value of x,y
@@ -111,6 +112,7 @@ private:
 public:
 
 	MapData data;
+	iPoint spawn = { 0,0 };
 
 private:
 

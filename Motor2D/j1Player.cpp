@@ -61,6 +61,8 @@ j1Player::~j1Player()
 bool j1Player::Start()
 {
 	bool ret = true;
+	startPos = App->map->spawn;
+	LOG("SpawnCoords %d %d",App->map->spawn.x, App->map->spawn.y);
 	position = startPos;
 	speed = 1;
 	LOG("Loading player textures");
@@ -80,6 +82,7 @@ bool j1Player::Update(float dt)
 {
 	bool ret = true;
 	current_animation = &idle;
+	prevPos = position;
 	
 	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
 	{
@@ -95,7 +98,29 @@ bool j1Player::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 	{
 		current_animation = &jump;
+		if (cont < 50) {
+			position.y = position.y - speed;
+			if (cont == 49) {
+				cont2 = 1;
+			}
+			cont++;
+		}
+		while (cont>0 && cont2 != 0) {
+			position.y = position.y + speed;
+			if (cont == 1) {
+				cont2 = 0;
+				jump.Reset();
+			}
+			cont--;
+		}
 	}
+
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_UP) {
+		if (position.y != prevPos.y) {
+			position.y = prevPos.y;
+		}
+	}
+
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
 	return ret;
