@@ -51,18 +51,20 @@ bool j1Player::Update(float dt)
 {
 	bool ret = true;
 	current_animation = &idle;
-	/*if (App->input->GetKey[SDL_SCANCODE_W] == j1KeyState::KEY_REPEAT)
-	{
-	}
-	if (App->input->GetKey[SDL_SCANCODE_A] == j1KeyState::KEY_REPEAT)
-	{
-	}
-	if (App->input->GetKey[SDL_SCANCODE_S] == j1KeyState::KEY_REPEAT)
-	{
-	}
-	if (App->input->GetKey[SDL_SCANCODE_D] == j1KeyState::KEY_REPEAT)
+	/*if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 	{
 	}*/
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
+	{
+		position.x -= 2 * speed;
+	}
+	/*if (App->input->GetKey(SDL_SCANCODE_S) == KEY_REPEAT)
+	{
+	}*/
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
+	{
+		position.x += 2 * speed;
+	}
 	
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 

@@ -24,7 +24,7 @@ public:
 
 public:
 
-	iPoint startPos = { 20,20 };
+	iPoint startPos = { 20, 1000};
 	iPoint position = { 0,0 };
 	int speed;
 	Animation* current_animation = nullptr;

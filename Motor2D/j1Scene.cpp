@@ -33,10 +33,10 @@ bool j1Scene::Start()
 {
 	if (map == 0)
 	{
-		App->map->Load("hello2.tmx");
+		App->map->Load("Level1.tmx");
 	}
 	else {
-		App->map->Load("Level1.tmx");
+		App->map->Load("hello2.tmx");
 	}
 	return true;
 }
