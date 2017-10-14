@@ -44,7 +44,8 @@ void j1Map::Draw()
 						SDL_Rect tile = tileset_list->data->GetTileRect(layer_list->data->Get(i, j));
 						SDL_Rect* section = &tile;
 						iPoint xy = MapToWorld(i, j);
-						if (layer_list->data->Get_gid(section)==23) {
+						MapLayer currentLayer ;
+						if (layer_list->data->Get_gid(i,j)==23) {
 							spawn.x = i;
 							spawn.y = j;
 						}
@@ -364,10 +365,11 @@ bool j1Map::LoadLayer(pugi::xml_node& node, MapLayer* layer)
 	return ret;
 }
 
-uint MapLayer::Get_gid(SDL_Rect* gid) {
-	//uint ret = gid->w*gid->y + gid->x;
-	//return data[ret];
-	return 23;
+uint MapLayer::Get_gid(int x, int y) {
+	//pugi::xml_node tile_gid = node.child("data").child("tile");
+	uint pos = Get(x, y);
+	uint ret = data[pos];
+	return ret;
 }
 
 uint MapLayer::Get(int x, int y) const {
