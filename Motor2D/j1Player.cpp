@@ -107,25 +107,16 @@ bool j1Player::Update(float dt)
 	if (jumping == true) {
 		current_animation = &jump;
 		if (cont < 50 && cont2!=1) {
-			position.y = position.y - speed;
-			App->render->camera.y = App->render->camera.y + speed;
+			position.y = position.y - speed*3;
+			App->render->camera.y = App->render->camera.y + speed*3;
 			if (cont == 49) {
 				cont2 = 1;
 			}
 			cont++;
 		}
-		//while (cont>0 && cont2 != 0) {
-		//	position.y = position.y + speed;
-		//	if (cont == 1) {
-		//		cont2 = 0;
-		//		jump.Reset();
-		//		jumping = false;
-		//	}
-		//	cont--;
-		//}
 		if (cont > 0 && cont2 != 0) {
-			position.y = position.y + speed;
-			App->render->camera.y = App->render->camera.y - speed;
+			position.y = position.y + speed*3;
+			App->render->camera.y = App->render->camera.y - speed*3;
 			LOG("funciona ya pls");
 			if (cont == 1) {
 				cont2 = 0;
