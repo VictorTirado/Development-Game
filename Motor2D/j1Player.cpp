@@ -6,6 +6,8 @@
 #include "j1Map.h"
 #include "j1Player.h"
 #include "j1Input.h"
+#include "j1Window.h"
+#include "j1Render.h"
 
 
 
@@ -88,12 +90,14 @@ bool j1Player::Update(float dt)
 	{
 		current_animation = &run;
 		position.x -= 2 * speed;
+		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 	}
 	
 	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
 	{
 		current_animation = &run;
 		position.x += 2 * speed;
+		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 	}
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 	{

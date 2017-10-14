@@ -112,7 +112,7 @@ private:
 public:
 
 	MapData data;
-	iPoint spawn = { 0,0 };
+	iPoint spawn = { 0,1000 };
 
 private:
 

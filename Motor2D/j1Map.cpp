@@ -45,10 +45,10 @@ void j1Map::Draw()
 						SDL_Rect* section = &tile;
 						iPoint xy = MapToWorld(i, j);
 						MapLayer currentLayer ;
-						if (layer_list->data->Get_gid(i,j)==23) {
-							spawn.x = i;
-							spawn.y = j;
-						}
+						//if (layer_list->data->Get_gid(i,j)==23) {
+						//	spawn.x = i;
+						//	spawn.y = j;
+						//}
 						if (layer_list->data->visible!=0) {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
 						}
