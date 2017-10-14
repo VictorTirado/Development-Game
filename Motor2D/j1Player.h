@@ -35,6 +35,7 @@ public:
 	Animation idle;
 	Animation run;
 	Animation jump;
+	bool jumping = false;
 	//Collider* collider = nullptr;
 //	fPoint position;
 

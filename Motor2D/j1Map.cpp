@@ -365,8 +365,9 @@ bool j1Map::LoadLayer(pugi::xml_node& node, MapLayer* layer)
 }
 
 uint MapLayer::Get_gid(SDL_Rect* gid) {
-	uint ret = gid->w*gid->y + gid->x;
-	return data[ret];
+	//uint ret = gid->w*gid->y + gid->x;
+	//return data[ret];
+	return 23;
 }
 
 uint MapLayer::Get(int x, int y) const {

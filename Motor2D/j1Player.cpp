@@ -50,7 +50,7 @@ j1Player::j1Player() : j1Module()
 	jump.PushBack({ 812,137,75,128 });
 	jump.PushBack({ 913,137,75,128 });
 	
-	jump.loop = 5.4f;
+	jump.loop = 0.0f;
 
 }
 
@@ -97,29 +97,40 @@ bool j1Player::Update(float dt)
 	}
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
 	{
+		jumping = true;
+	}
+
+	if (jumping == true) {
 		current_animation = &jump;
-		if (cont < 50) {
+		if (cont < 50 && cont2!=1) {
 			position.y = position.y - speed;
 			if (cont == 49) {
 				cont2 = 1;
 			}
 			cont++;
 		}
-		while (cont>0 && cont2 != 0) {
+		//while (cont>0 && cont2 != 0) {
+		//	position.y = position.y + speed;
+		//	if (cont == 1) {
+		//		cont2 = 0;
+		//		jump.Reset();
+		//		jumping = false;
+		//	}
+		//	cont--;
+		//}
+		if (cont > 0 && cont2 != 0) {
 			position.y = position.y + speed;
+			LOG("funciona ya pls");
 			if (cont == 1) {
 				cont2 = 0;
 				jump.Reset();
+				jumping = false;
 			}
 			cont--;
 		}
 	}
 
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_UP) {
-		if (position.y != prevPos.y) {
-			position.y = prevPos.y;
-		}
-	}
+
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()));
 
