@@ -108,6 +108,7 @@ bool j1Player::Update(float dt)
 		current_animation = &jump;
 		if (cont < 50 && cont2!=1) {
 			position.y = position.y - speed;
+			App->render->camera.y = App->render->camera.y + speed;
 			if (cont == 49) {
 				cont2 = 1;
 			}
@@ -124,6 +125,7 @@ bool j1Player::Update(float dt)
 		//}
 		if (cont > 0 && cont2 != 0) {
 			position.y = position.y + speed;
+			App->render->camera.y = App->render->camera.y - speed;
 			LOG("funciona ya pls");
 			if (cont == 1) {
 				cont2 = 0;

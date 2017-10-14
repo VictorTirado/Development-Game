@@ -46,8 +46,8 @@ bool j1Render::Awake(pugi::xml_node& config)
 	{
 		camera.w = App->win->screen_surface->w;
 		camera.h = App->win->screen_surface->h;
-		camera.x = App->player->position.x - (App->win->screen_surface->w / 2);
-		camera.y = App->player->position.y /*- (App->win->screen_surface->h / 2)*/;
+		camera.x = App->player->position.x + (App->win->screen_surface->w / 2);
+		camera.y = App->player->position.y - (App->win->screen_surface->h);
 	}
 
 	return ret;
