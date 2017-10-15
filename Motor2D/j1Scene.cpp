@@ -34,6 +34,7 @@ bool j1Scene::Start()
 {
 		App->map->Load("Level1.tmx");
 		map = 1;
+		App->audio->PlayMusic("audio/music/Meditacion_Ninja_musica_.ogg");
 
 	return true;
 }
