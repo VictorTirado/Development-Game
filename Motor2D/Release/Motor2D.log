@@ -1,0 +1,25 @@
+﻿  j1FadeToBlack.cpp
+  j1Main.cpp
+  j1App.cpp
+  j1Audio.cpp
+  j1Input.cpp
+  j1Map.cpp
+j1Map.cpp(42): warning C4018: '<': no coinciden signed/unsigned
+j1Map.cpp(43): warning C4018: '<': no coinciden signed/unsigned
+  j1Player.cpp
+j1Player.cpp(30): warning C4305: '=': truncamiento de 'float' a 'bool'
+j1Player.cpp(44): warning C4305: '=': truncamiento de 'float' a 'bool'
+j1Player.cpp(72): warning C4305: '=': truncamiento de 'float' a 'bool'
+j1Player.cpp(105): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+j1Player.cpp(253): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Player.cpp(254): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+  j1Scene.cpp
+  p2Log.cpp
+  j1Render.cpp
+  j1Textures.cpp
+  j1Window.cpp
+  pugixml.cpp
+  Generando código
+  All 414 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generación de código finalizada
+  Motor2D.vcxproj -> C:\Users\USUARIO\Desktop\Desarrollo\Development-Game\Release\Motor 2D.exe
