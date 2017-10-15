@@ -1,5 +1,8 @@
-﻿  j1Scene.cpp
-c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1scene.cpp(76): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1scene.cpp(86): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+﻿  j1Player.cpp
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1player.cpp(28): warning C4305: '=': truncamiento de 'float' a 'bool'
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1player.cpp(42): warning C4305: '=': truncamiento de 'float' a 'bool'
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1player.cpp(90): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1player.cpp(154): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1player.cpp(162): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
   Motor2D.vcxproj -> C:\Users\USUARIO\Desktop\Desarrollo\Development-Game\Debug\Motor 2D.exe
   Motor2D.vcxproj -> C:\Users\USUARIO\Desktop\Desarrollo\Development-Game\Debug\Motor 2D.pdb (Partial PDB)

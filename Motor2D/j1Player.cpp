@@ -82,8 +82,14 @@ bool j1Player::PreUpdate()
 
 bool j1Player::Update(float dt)
 {
-	//startPos.x = App->map->spawn.x;
-	//startPos.y = App->map->spawn.y;
+	startPos.x = App->map->spawn.x;
+	startPos.y = App->map->spawn.y;
+	if (firstUpdate == true) {
+		position = startPos;
+		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
+		App->render->camera.y = startPos.y - (App->win->screen_surface->h*2.5);
+		firstUpdate = false;
+	}
 	gid=App->map->Get_gid(position.x-75, position.y);
 	bool ret = true;
 	current_animation = &idle;
@@ -157,25 +163,27 @@ bool j1Player::Update(float dt)
 	}
 
 	if (App->map->data.maplayers.end->data->data[gid + 1] == 54) {
-		if (App->scene->map == 0)
+		if (App->scene->map == 1)
 		{
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
 			App->map->Load("Level2.tmx");
+			firstUpdate = true;
 			App->scene->map = 1;
 			position = startPos;
-			App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
-			App->render->camera.y = position.y - (App->win->screen_surface->h*2.5);
+		//	App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
+		//	App->render->camera.y = position.y - (App->win->screen_surface->h*2.5);
 		}
 		else
 		{
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
 			App->map->Load("Level1.tmx");
+			firstUpdate = true;
 			App->scene->map = 0;
 			position = startPos;
-			App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
-			App->render->camera.y = position.y - (App->win->screen_surface->h*2.5);
+			//App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
+			//App->render->camera.y = position.y - (App->win->screen_surface->h*2.5);
 		}
 	}
 

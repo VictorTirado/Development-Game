@@ -37,6 +37,7 @@ public:
 	bool jumping = false;
 	uint gid;
 	SDL_RendererFlip flip;
+	bool firstUpdate = true;
 	//Collider* collider = nullptr;
 //	fPoint position;
 	
