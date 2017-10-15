@@ -131,9 +131,6 @@
     <None Include="..\Game\maps\Level2.tmx">
       <Filter>Desenvolupament  ========</Filter>
     </None>
-    <None Include="..\Game\maps\Level3.tmx">
-      <Filter>Desenvolupament  ========</Filter>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\Game\config.xml" />
