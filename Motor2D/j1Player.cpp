@@ -82,6 +82,8 @@ bool j1Player::PreUpdate()
 
 bool j1Player::Update(float dt)
 {
+	//startPos.x = App->map->spawn.x;
+	//startPos.y = App->map->spawn.y;
 	gid=App->map->Get_gid(position.x-75, position.y);
 	bool ret = true;
 	current_animation = &idle;
@@ -142,9 +144,8 @@ bool j1Player::Update(float dt)
 		App->render->camera.y = App->render->camera.y - speed * 4;
 		if (App->map->data.maplayers.end->data->data[gid + 50 + 1] == 55) {
 			position = startPos;
-			App->render->camera.x = startPos.x + (App->win->screen_surface->w / 2);
-			App->render->camera.y = startPos.y - (App->win->screen_surface->h*2.2);
-			
+			App->render->camera.x = startPos.x + (App->win->screen_surface->w );
+			App->render->camera.y = startPos.y - (App->win->screen_surface->h*2.5);
 		}
 	}
 	jump.Reset();

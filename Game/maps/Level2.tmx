@@ -25,6 +25,11 @@
     <property name="Death" type="bool" value="true"/>
    </properties>
   </tile>
+  <tile id="55">
+   <properties>
+    <property name="Climb" type="bool" value="true"/>
+   </properties>
+  </tile>
  </tileset>
  <layer name="Background" width="50" height="15" visible="1">
   <data>
@@ -2288,7 +2293,7 @@
    <tile gid="51"/>
   </data>
  </layer>
- <layer name="Logic" width="50" height="15" opacity="0.45">
+ <layer name="Logic" width="50" height="15" visible="0" opacity="0.45">
   <data>
    <tile gid="55"/>
    <tile gid="0"/>
@@ -2475,57 +2480,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="54"/>
-   <tile gid="55"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="132"/>
-   <tile gid="132"/>
-   <tile gid="132"/>
-   <tile gid="132"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="132"/>
-   <tile gid="132"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="0"/>
-   <tile gid="132"/>
-   <tile gid="132"/>
-   <tile gid="132"/>
+   <tile gid="56"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -2541,6 +2496,56 @@
    <tile gid="0"/>
    <tile gid="54"/>
    <tile gid="55"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="132"/>
+   <tile gid="132"/>
+   <tile gid="132"/>
+   <tile gid="132"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="132"/>
+   <tile gid="132"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="132"/>
+   <tile gid="132"/>
+   <tile gid="56"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="0"/>
+   <tile gid="54"/>
+   <tile gid="55"/>
    <tile gid="132"/>
    <tile gid="132"/>
    <tile gid="132"/>
@@ -2583,7 +2588,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="56"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -2633,7 +2638,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="56"/>
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
@@ -2683,7 +2688,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="56"/>
    <tile gid="38"/>
    <tile gid="38"/>
    <tile gid="38"/>
@@ -2733,7 +2738,7 @@
    <tile gid="0"/>
    <tile gid="0"/>
    <tile gid="0"/>
-   <tile gid="0"/>
+   <tile gid="56"/>
    <tile gid="38"/>
    <tile gid="0"/>
    <tile gid="0"/>

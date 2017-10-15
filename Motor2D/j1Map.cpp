@@ -5,6 +5,7 @@
 #include "j1Textures.h"
 #include "j1Map.h"
 #include <math.h>
+#include "j1Player.h"
 
 
 j1Map::j1Map() : j1Module(), map_loaded(false)
@@ -44,8 +45,16 @@ void j1Map::Draw()
 						SDL_Rect tile = tileset_list->data->GetTileRect(layer_list->data->Get(i, j));
 						SDL_Rect* section = &tile;
 						iPoint xy = MapToWorld(i, j);
+						uint gid = Get_gid(xy.x, xy.y);
+						if (App->map->data.maplayers.end->data->data[gid] == 39) {
+							spawn.x = xy.x;
+							spawn.y = xy.y;
+							LOG("Spawn.x = %d Spawn.y = %d", spawn.x, spawn.y);
+						}
 						if (layer_list->data->visible!=0) {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
+							App->player->startPos.x = spawn.x;
+							App->player->startPos.y = spawn.y;
 						}
 					}
 				}
