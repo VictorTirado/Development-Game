@@ -14,6 +14,8 @@
 
 j1Player::j1Player() : j1Module()
 {
+
+	name.create("player");
 	//IDLE
 	idle.PushBack({ 16,1,75,128 });
 	idle.PushBack({ 94,1,75,128 });
@@ -208,5 +210,33 @@ bool j1Player::CleanUp()
 	//App->collision->EraseCollider(collider);
 
 	return true;
+}
+
+bool j1Player::Save(pugi::xml_node& save) const
+{
+	bool ret = false;
+	if (save.child("pos") == NULL) {
+		save.append_child("pos").append_attribute("x") = position.x;
+		save.child("pos").append_attribute("y") = position.y;
+	}
+	else {
+		save.child("pos").attribute("x") = position.x;
+		save.child("pos").attribute("y") = position.y;
+	}
+
+	ret = true;
+	return ret;
+}
+
+bool j1Player::Load(pugi::xml_node& save)
+{
+	bool ret = false;
+
+	if (save.child("pos") != NULL) {
+		position.x = save.child("pos").attribute("x").as_float();
+		position.y = save.child("pos").attribute("y").as_float();
+	}
+	ret = true;
+	return ret;	
 }
 

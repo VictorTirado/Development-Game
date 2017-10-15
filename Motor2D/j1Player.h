@@ -12,14 +12,18 @@ public:
 	j1Player();
 	~j1Player();
 
-	//bool Awake(pugi::xml_node&);
+	
 	bool Start();
 	bool CleanUp();
 	bool PreUpdate();
 	bool Update(float dt);
 	bool PostUpdate();
 
-	//void OnCollision(Collider* c1, Collider* c2);
+
+	bool Save(pugi::xml_node&) const;
+
+	bool Load(pugi::xml_node&);
+	
 	
 
 public:
