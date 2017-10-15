@@ -116,8 +116,11 @@
     <None Include="..\Game\maps\hello2.tmx">
       <SubType>Designer</SubType>
     </None>
-    <None Include="..\Game\maps\Level1.tmx" />
+    <None Include="..\Game\maps\Level1.tmx">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="..\Game\maps\Level2.tmx" />
+    <None Include="..\Game\maps\Level3.tmx" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\Game\config.xml">
