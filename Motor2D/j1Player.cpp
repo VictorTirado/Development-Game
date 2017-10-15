@@ -57,6 +57,19 @@ j1Player::j1Player() : j1Module()
 	
 	jump.loop = 0.0f;
 
+	//CLIMB
+
+	climb.PushBack({550,272,75,128});
+	climb.PushBack({ 642,272,75,128 });
+	climb.PushBack({ 723,272,75,128 });
+	climb.PushBack({ 803,272,75,128 });
+	climb.PushBack({ 884,272,75,128 });
+	climb.PushBack({ 559,413,75,128 });
+	climb.PushBack({ 634,413,75,128 });
+	climb.PushBack({ 713,413,75,128 });
+	climb.PushBack({ 801,413,75,128 });
+	climb.PushBack({ 894,413,75,128 });
+	
 }
 
 j1Player::~j1Player()
@@ -117,6 +130,7 @@ bool j1Player::Update(float dt)
 	}
 	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && App->map->data.maplayers.end->data->data[gid-49] == 56)
 	{
+		current_animation = &climb;
 		climbing = true;
 		if (App->map->data.maplayers.end->data->data[gid - 49] == 56) {
 			position.y = position.y - speed * 4;

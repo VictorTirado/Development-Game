@@ -38,6 +38,7 @@ public:
 	Animation idle;
 	Animation run;
 	Animation jump;
+	Animation climb;
 	bool jumping = false;
 	bool climbing = false;
 	uint gid;
