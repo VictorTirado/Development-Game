@@ -69,7 +69,7 @@ j1Player::j1Player() : j1Module()
 	climb.PushBack({ 713,413,75,128 });
 	climb.PushBack({ 801,413,75,128 });
 	climb.PushBack({ 894,413,75,128 });
-	
+	climb.loop = 5.4f;
 }
 
 j1Player::~j1Player()
@@ -140,6 +140,9 @@ bool j1Player::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT && current_animation != &jump)
 	{
 		jumping = true;
+	}
+	if (App->map->data.maplayers.end->data->data[gid - 49] == 56) {
+		current_animation = &climb;
 	}
 	if (App->map->data.maplayers.end->data->data[gid - 49] != 56 && climbing==true) {
 		climbing = false;
