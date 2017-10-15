@@ -627,7 +627,7 @@ namespace pugi
 		xml_object_range<xml_attribute_iterator> attributes() const;
 
 		// Get node offset in parsed file/string (in char_t units) for debugging purposes
-		//ptrdiff_t offset_debug() const;
+		ptrdiff_t offset_debug() const;
 
 		// Get hash value (unique for handles to the same object)
 		size_t hash_value() const;
