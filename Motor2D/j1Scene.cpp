@@ -75,11 +75,9 @@ bool j1Scene::Update(float dt)
 		}
 		else
 		{
-			App->map->CleanUp();
-			App->fade->FadeToBlack(1);
-			App->map->Load("Level2.tmx");
+	
 			App->player->firstUpdate = true;
-			map = 0;
+			
 		}
 		
 	}
