@@ -1,20 +1,5 @@
-﻿  pugixml.cpp
-  j1Window.cpp
-  j1Textures.cpp
-  j1Render.cpp
-  p2Log.cpp
-  j1Scene.cpp
-  j1Player.cpp
-c:\users\usuario\desktop\development-game\motor2d\j1player.cpp(27): warning C4305: '=': truncamiento de 'float' a 'bool'
-c:\users\usuario\desktop\development-game\motor2d\j1player.cpp(41): warning C4305: '=': truncamiento de 'float' a 'bool'
-  j1Map.cpp
-c:\users\usuario\desktop\development-game\motor2d\j1map.cpp(41): warning C4018: '<': no coinciden signed/unsigned
-c:\users\usuario\desktop\development-game\motor2d\j1map.cpp(42): warning C4018: '<': no coinciden signed/unsigned
-  j1Input.cpp
-  j1Audio.cpp
-  j1App.cpp
-  j1Main.cpp
-  j1FadeToBlack.cpp
-  Generando código...
-  Motor2D.vcxproj -> C:\Users\Usuario\Desktop\Development-Game\Debug\Motor 2D.exe
-  Motor2D.vcxproj -> C:\Users\Usuario\Desktop\Development-Game\Debug\Motor 2D.pdb (Partial PDB)
+﻿  j1Player.cpp
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1player.cpp(27): warning C4305: '=': truncamiento de 'float' a 'bool'
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1player.cpp(41): warning C4305: '=': truncamiento de 'float' a 'bool'
+  Motor2D.vcxproj -> C:\Users\USUARIO\Desktop\Desarrollo\Development-Game\Debug\Motor 2D.exe
+  Motor2D.vcxproj -> C:\Users\USUARIO\Desktop\Desarrollo\Development-Game\Debug\Motor 2D.pdb (Partial PDB)

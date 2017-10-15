@@ -113,6 +113,7 @@ public:
 
 	MapData data;
 	iPoint spawn = { 0,1000 };
+	uint Get_gid(int x, int y);
 
 private:
 

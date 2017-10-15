@@ -24,9 +24,8 @@ public:
 
 public:
 
-	iPoint startPos = { 20, 1000};
+	iPoint startPos = { 0, 1000 };
 	iPoint position = { 0,0 };
-	iPoint prevPos = { 0,0 };
 	int speed;
 	int cont = 0;
 	int cont2 = 0;
@@ -36,6 +35,8 @@ public:
 	Animation run;
 	Animation jump;
 	bool jumping = false;
+	uint gid;
+	SDL_RendererFlip flip;
 	//Collider* collider = nullptr;
 //	fPoint position;
 

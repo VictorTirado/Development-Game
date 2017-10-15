@@ -44,11 +44,9 @@ void j1Map::Draw()
 						SDL_Rect tile = tileset_list->data->GetTileRect(layer_list->data->Get(i, j));
 						SDL_Rect* section = &tile;
 						iPoint xy = MapToWorld(i, j);
-						MapLayer currentLayer ;
-						//if (layer_list->data->Get_gid(i,j)==23) {
-						//	spawn.x = i;
-						//	spawn.y = j;
-						//}
+						if (layer_list->data->name == "Logic") {
+							//pugi::xml_node logiclayer = 
+						}
 						if (layer_list->data->visible!=0) {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
 						}
@@ -374,4 +372,11 @@ uint MapLayer::Get_gid(int x, int y) {
 
 uint MapLayer::Get(int x, int y) const {
 	return data[width*y + x];
+}
+
+uint j1Map::Get_gid(int x, int y) {
+	iPoint ret;
+	ret.x = x / data.tile_width;
+	ret.y = y / data.tile_height;
+	return data.maplayers.start->data->width*ret.y + ret.x;
 }
