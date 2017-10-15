@@ -72,9 +72,6 @@ bool j1Scene::Update(float dt)
 			App->map->Load("Level1.tmx");
 			App->player->firstUpdate = true;
 			map = 1;
-			App->player->position = App->player->startPos;
-			//App->render->camera.x = App->player->position.x + (App->win->screen_surface->w/ App->player->position.x);
-			//App->render->camera.y = App->player->position.y - (App->win->screen_surface->h*2.5);
 		}
 		else
 		{
@@ -83,9 +80,6 @@ bool j1Scene::Update(float dt)
 			App->map->Load("Level2.tmx");
 			App->player->firstUpdate = true;
 			map = 0;
-			App->player->position = App->player->startPos;
-			//App->render->camera.x = App->player->position.x + (App->win->screen_surface->w / App->player->position.x);
-			//App->render->camera.y = App->player->position.y - (App->win->screen_surface->h*2.5);
 		}
 		
 	}

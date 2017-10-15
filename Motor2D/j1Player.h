@@ -35,6 +35,7 @@ public:
 	Animation run;
 	Animation jump;
 	bool jumping = false;
+	bool climbing = false;
 	uint gid;
 	SDL_RendererFlip flip;
 	bool firstUpdate = true;
