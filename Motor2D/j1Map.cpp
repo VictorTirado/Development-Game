@@ -44,9 +44,6 @@ void j1Map::Draw()
 						SDL_Rect tile = tileset_list->data->GetTileRect(layer_list->data->Get(i, j));
 						SDL_Rect* section = &tile;
 						iPoint xy = MapToWorld(i, j);
-						if (layer_list->data->name == "Logic") {
-							//pugi::xml_node logiclayer = 
-						}
 						if (layer_list->data->visible!=0) {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
 						}

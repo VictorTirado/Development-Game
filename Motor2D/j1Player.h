@@ -39,7 +39,6 @@ public:
 	SDL_RendererFlip flip;
 	//Collider* collider = nullptr;
 //	fPoint position;
-
 	
 };
 

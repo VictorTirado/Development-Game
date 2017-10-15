@@ -8,7 +8,8 @@
 #include "j1Input.h"
 #include "j1Window.h"
 #include "j1Render.h"
-
+#include "j1Scene.h"
+#include "j1FadeToBlack.h"
 
 
 j1Player::j1Player() : j1Module()
@@ -70,7 +71,6 @@ bool j1Player::Start()
 	LOG("Loading player textures");
 	
 	graphics = App->tex->Load("player/Player2.png");
-	//collider = App->collision->AddCollider({ position.x, position.y, 27, -48 }, COLLIDER_PLAYER, this);
 	return ret;
 }
 
@@ -124,6 +124,9 @@ bool j1Player::Update(float dt)
 			if (App->map->data.maplayers.end->data->data[gid+50+1] != 38) {
 				position.y = position.y + speed * 4;
 				App->render->camera.y = App->render->camera.y - speed * 4;
+				if (App->map->data.maplayers.end->data->data[gid + 50 + 1] == 55) {
+					position = startPos;
+				}
 			}
 			if (App->map->data.maplayers.end->data->data[gid + 50+1] == 38) {
 				cont = 0;
@@ -137,6 +140,12 @@ bool j1Player::Update(float dt)
 		current_animation = &jump;
 		position.y = position.y + speed * 4;
 		App->render->camera.y = App->render->camera.y - speed * 4;
+		if (App->map->data.maplayers.end->data->data[gid + 50 + 1] == 55) {
+			position = startPos;
+			App->render->camera.x = startPos.x + (App->win->screen_surface->w / 2);
+			App->render->camera.y = startPos.y - (App->win->screen_surface->h*2.2);
+			
+		}
 	}
 	jump.Reset();
 
@@ -145,6 +154,25 @@ bool j1Player::Update(float dt)
 	//	App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
 	//	App->render->camera.y = position.y - (App->win->screen_surface->h*2);
 	//}
+
+	if (App->map->data.maplayers.end->data->data[gid + 1] == 54) {
+		if (App->scene->map == 0)
+		{
+			App->map->CleanUp();
+			App->fade->FadeToBlack(1);
+			App->map->Load("Level2.tmx");
+			App->scene->map = 1;
+			position = startPos;
+		}
+		else
+		{
+			App->map->CleanUp();
+			App->fade->FadeToBlack(1);
+			App->map->Load("Level1.tmx");
+			App->scene->map = 0;
+			position = startPos;
+		}
+	}
 
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()),1, flip);
 

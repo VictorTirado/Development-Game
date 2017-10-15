@@ -32,8 +32,9 @@ public:
 	// Called before quitting
 	bool CleanUp();
 
+	int map = 0;
 private:
-	int map=0;
+	//int map=0;
 };
 
 #endif // __j1SCENE_H__

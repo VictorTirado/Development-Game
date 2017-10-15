@@ -31,13 +31,8 @@ bool j1Scene::Awake()
 // Called before the first frame
 bool j1Scene::Start()
 {
-	if (map == 0)
-	{
 		App->map->Load("Level1.tmx");
-	}
-	else {
-		App->map->Load("Level2.tmx");
-	}
+
 	return true;
 }
 
@@ -68,14 +63,6 @@ bool j1Scene::Update(float dt)
 	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		App->render->camera.x += 1;
 	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && App->fade->IsFading() == false) {
-		/*if (map == 0)
-		{
-			map = 1;
-		}
-		else
-		{
-			map = 0;
-		}*/
 		if (map == 0)
 		{
 			App->map->CleanUp();
