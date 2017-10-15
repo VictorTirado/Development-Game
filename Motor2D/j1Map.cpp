@@ -51,7 +51,10 @@ void j1Map::Draw()
 							spawn.y = xy.y;
 							LOG("Spawn.x = %d Spawn.y = %d", spawn.x, spawn.y);
 						}
-						if (layer_list->data->visible!=0) {
+						if (layer_list->data->name == "Background") {
+							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile, 0.5f);
+						}
+						if (layer_list->data->visible!=0 && layer_list->data->name != "Background") {
 							App->render->Blit(tileset_list->data->texture, xy.x, xy.y, &tile);
 							App->player->startPos.x = spawn.x;
 							App->player->startPos.y = spawn.y;
