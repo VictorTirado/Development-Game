@@ -83,6 +83,9 @@ bool j1Scene::Update(float dt)
 		}
 		
 	}
+	if (App->input->GetKey(SDL_SCANCODE_F2) == KEY_DOWN && App->fade->IsFading() == false) {
+		App->player->firstUpdate = true;
+	}
 	
 	//App->render->Blit(img, 0, 0);
 	App->map->Draw();
