@@ -369,13 +369,6 @@ bool j1Map::LoadLayer(pugi::xml_node& node, MapLayer* layer)
 	return ret;
 }
 
-uint MapLayer::Get_gid(int x, int y) {
-	//pugi::xml_node tile_gid = node.child("data").child("tile");
-	uint pos = Get(x, y);
-	uint ret = data[pos];
-	return ret;
-}
-
 uint MapLayer::Get(int x, int y) const {
 	return data[width*y + x];
 }

@@ -107,7 +107,7 @@ bool j1Player::Update(float dt)
 			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		}
 	}
-	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT)
+	if (App->input->GetKey(SDL_SCANCODE_W) == KEY_REPEAT && current_animation != &jump)
 	{
 		jumping = true;
 	}
@@ -150,11 +150,11 @@ bool j1Player::Update(float dt)
 	}
 	jump.Reset();
 
-	//if (App->map->data.maplayers.end->data->data[gid] == 55) {
-	//	position = startPos;
-	//	App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
-	//	App->render->camera.y = position.y - (App->win->screen_surface->h*2);
-	//}
+	if (App->map->data.maplayers.end->data->data[gid] == 55) {
+		position = startPos;
+		App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
+		App->render->camera.y = position.y - (App->win->screen_surface->h*2.5);
+	}
 
 	if (App->map->data.maplayers.end->data->data[gid + 1] == 54) {
 		if (App->scene->map == 0)
@@ -164,6 +164,8 @@ bool j1Player::Update(float dt)
 			App->map->Load("Level2.tmx");
 			App->scene->map = 1;
 			position = startPos;
+			App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
+			App->render->camera.y = position.y - (App->win->screen_surface->h*2.5);
 		}
 		else
 		{
@@ -172,6 +174,8 @@ bool j1Player::Update(float dt)
 			App->map->Load("Level1.tmx");
 			App->scene->map = 0;
 			position = startPos;
+			App->render->camera.x = position.x + (App->win->screen_surface->w / 2);
+			App->render->camera.y = position.y - (App->win->screen_surface->h*2.5);
 		}
 	}
 

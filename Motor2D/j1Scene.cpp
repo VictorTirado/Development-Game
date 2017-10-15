@@ -9,6 +9,7 @@
 #include "j1Map.h"
 #include "j1Scene.h"
 #include "j1FadeToBlack.h"
+#include "j1Player.h"
 
 j1Scene::j1Scene() : j1Module()
 {
@@ -32,6 +33,7 @@ bool j1Scene::Awake()
 bool j1Scene::Start()
 {
 		App->map->Load("Level1.tmx");
+		map = 1;
 
 	return true;
 }
@@ -62,13 +64,16 @@ bool j1Scene::Update(float dt)
 
 	if(App->input->GetKey(SDL_SCANCODE_RIGHT) == KEY_REPEAT)
 		App->render->camera.x += 1;
-	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_DOWN && App->fade->IsFading() == false) {
+	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_DOWN && App->fade->IsFading() == false) {
 		if (map == 0)
 		{
 			App->map->CleanUp();
 			App->fade->FadeToBlack(1);
 			App->map->Load("Level1.tmx");
 			map = 1;
+			App->player->position = App->player->startPos;
+			App->render->camera.x = App->player->position.x + (App->win->screen_surface->w/ App->player->position.x);
+			App->render->camera.y = App->player->position.y - (App->win->screen_surface->h*2.5);
 		}
 		else
 		{
@@ -76,6 +81,9 @@ bool j1Scene::Update(float dt)
 			App->fade->FadeToBlack(1);
 			App->map->Load("Level2.tmx");
 			map = 0;
+			App->player->position = App->player->startPos;
+			App->render->camera.x = App->player->position.x + (App->win->screen_surface->w / App->player->position.x);
+			App->render->camera.y = App->player->position.y - (App->win->screen_surface->h*2.5);
 		}
 		
 	}
