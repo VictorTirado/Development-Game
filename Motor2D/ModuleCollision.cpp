@@ -52,7 +52,7 @@ bool ModuleCollision::PreUpdate()
 }
 
 // Called before render is available
-bool ModuleCollision::Update()
+bool ModuleCollision::Update(float dt)
 {
 	Collider* c1;
 	Collider* c2;
@@ -109,10 +109,10 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_NONE: // white
 			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
 			break;
-		case COLLIDER_PLAYER: // white
+		case COLLIDER_PLAYER: 
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
 			break;
-		case COLLIDER_Fire_Ball: // white
+		case COLLIDER_Fire_Ball: 
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
 		

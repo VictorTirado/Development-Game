@@ -48,7 +48,7 @@ public:
 	bool Start();
 
 	virtual bool  PreUpdate();
-	virtual bool Update();
+	virtual bool Update(float dt);
 	bool CleanUp();
 
 	Collider* AddCollider(SDL_Rect rect, COLLIDER_TYPE type, j1Module* callback = nullptr);

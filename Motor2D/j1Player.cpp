@@ -147,6 +147,7 @@ bool j1Player::Update(float dt)
 		position = startPos;
 		App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		App->render->camera.y = startPos.y - (App->win->screen_surface->h*2.5);
+		collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 		firstUpdate = false;
 	}
 	gid=App->map->Get_gid(position.x-75, position.y);
@@ -246,12 +247,14 @@ bool j1Player::Update(float dt)
 		position.y = position.y + speed * 4;
 		App->render->camera.y = App->render->camera.y - speed * 4;
 		if (App->map->data.maplayers.end->data->data[gid + 50 + 1] == 55) {
+			App->collision->EraseCollider(collider);
 			firstUpdate = true;
 		}
 	}
 	jump.Reset();
 
 	if (App->map->data.maplayers.end->data->data[gid] == 55) {
+		App->collision->EraseCollider(collider);
 		firstUpdate = true;
 	}
 
@@ -262,6 +265,7 @@ bool j1Player::Update(float dt)
 			App->fade->FadeToBlack(1);
 			App->map->Load("Level2.tmx");
 			firstUpdate = true;
+			App->collision->EraseCollider(collider);
 			App->scene->map = 0;
 		}
 		else
@@ -270,10 +274,11 @@ bool j1Player::Update(float dt)
 			App->fade->FadeToBlack(1);
 			App->map->Load("Level1.tmx");
 			firstUpdate = true;
+			App->collision->EraseCollider(collider);
 			App->scene->map = 1;
 		}
 	}
-
+	collider->SetPos(position.x , position.y);
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()),1, flip);
 
 	return ret;
