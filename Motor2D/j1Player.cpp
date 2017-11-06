@@ -9,6 +9,7 @@
 #include "j1Window.h"
 #include "j1Render.h"
 #include "j1Scene.h"
+#include "j1Particles.h"
 #include "j1FadeToBlack.h"
 #include "ModuleCollision.h"
 
@@ -20,88 +21,59 @@ j1Player::j1Player() : j1Module()
 	//IDLE
 	idle.PushBack({ 70,17,46,69 });
 
-	
-	idle.loop = 5.4f;
-
 	//RUN
-	
 	//run.PushBack({ 146,17,46,69 });
-	//run.PushBack({ 221,17,47,69 });
-	//run.PushBack({ 47,107,39,68 });
-	//run.PushBack({ 127,106,43,69 });
-	//run.PushBack({ 208,106,45,68 });
-	//run.PushBack({ 287,105,43,69 });
+	run.PushBack({ 221,17,47,69 });
+	run.PushBack({ 47,107,39,68 });
+	run.PushBack({ 127,106,43,69 });
+	run.PushBack({ 208,106,45,68 });
+	run.PushBack({ 287,105,43,69 });
 	run.PushBack({ 127,106,46,69 });
 	run.PushBack({ 208,106,46,69 });
 	run.PushBack({ 287,105,46,69 });
-	
-
-	run.loop = 5.4f;
+	run.speed = 0.10f;
 
 	//JUMP
 
-	jump.PushBack({ 639,1,75,128});
-	jump.PushBack({ 731,1,75,128 });
-	jump.PushBack({ 820,1,75,128 });
-	jump.PushBack({ 909,1,75,128 });
-	jump.PushBack({ 566,137,75,128 });
-	jump.PushBack({ 645,137,75,128 });
-	jump.PushBack({ 726,137,75,128 });
-	jump.PushBack({ 812,137,75,128 });
-	jump.PushBack({ 913,137,75,128 });
+	jump.PushBack({ 42,186,46,78 });
+	jump.PushBack({ 106,187,44,78});
+	jump.PushBack({ 170,189,44,78 });
 	
-	jump.loop = 5.4f;
+	jump.speed=0.10f;
 
 	//Levitate
 	levitate.PushBack({ 622,241,46,78 });
-	levitate.PushBack({ 689,240,46,79 });
-	levitate.PushBack({ 767,221,46,104 });
-	levitate.PushBack({833,200,45,166});
-	levitate.loop = 5.4f;
-
-	//CLIMB
-	climb.PushBack({550,272,75,128});
-	climb.PushBack({ 642,272,75,128 });
-	climb.PushBack({ 723,272,75,128 });
-	climb.PushBack({ 803,272,75,128 });
-	climb.PushBack({ 884,272,75,128 });
-	climb.PushBack({ 559,413,75,128 });
-	climb.PushBack({ 634,413,75,128 });
-	climb.PushBack({ 713,413,75,128 });
-	climb.PushBack({ 801,413,75,128 });
-	climb.PushBack({ 894,413,75,128 });
-	climb.loop = 5.4f;
 	
+	levitate.PushBack({ 689,241,46,78 });
+	levitate.PushBack({ 767,244,46,78 });
+	levitate.PushBack({833,248,46,78});
+	levitate.speed = 0.01f;
 
-
-
+	//ICE
 	attack.PushBack({ 29,377,49,69 });
 	attack.PushBack({ 84,377,49,69 });
 	attack.PushBack({ 149,379,49,69 });
-
-
 	attack.PushBack({ 256,375,50,69});
 	attack.PushBack({ 359,373,50,69 });
 	attack.PushBack({ 484,373,50,69 });
 	attack.PushBack({ 630,372,50,69 });
-
 	attack.PushBack({ 53,457,50,69 });
 	attack.PushBack({ 228,457,50,69 });
-	//attack.PushBack({ 336,467,131,61 });
-	/*attack.PushBack({ 499,465,133,62 });
-	attack.PushBack({ 648,464,135,61 });
-	attack.PushBack({ 814,465,135,61 });
-	attack.PushBack({ 967,467,148,61 });*/
+	attack.PushBack({ 378,457,50,69 });
+	attack.PushBack({ 541,455,50,69 });
+	attack.PushBack({ 692,454,50,69 });
+	attack.PushBack({ 858,455,50,69 });
+	attack.PushBack({ 1017,457,50,69 });
+	attack.speed = 0.05f;
 
-
+	//THUNDER
 	melee.PushBack({ 442,98,46,69 });
 	melee.PushBack({ 501,98,55,69 });
 	melee.PushBack({ 558,98,100,69 });
 	melee.PushBack({ 675,104,127,69 });
 	melee.PushBack({ 821,109,100,69 });
 
-
-
+	//FIRE
 	shot.PushBack({ 22,550,46,69 });
 	shot.PushBack({ 83,551,49,70 });
 	shot.PushBack({ 152,553,59,71 });
@@ -109,6 +81,7 @@ j1Player::j1Player() : j1Module()
 	shot.PushBack({ 315,555,49,69 });
 	shot.PushBack({ 385,556,46,69 });
 
+	//DEATH
 	death.PushBack({ 38,282,46,69 });
 	death.PushBack({ 93,289,45,62 });
 	death.PushBack({ 147,315,45,62 });
@@ -178,14 +151,17 @@ bool j1Player::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT)
 	{
 		current_animation = &attack;
+		Ice();
 	}
 	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT)
 	{
 		current_animation = &melee;
+		Thunder();
 	}
-	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT)
+	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN)
 	{
 		current_animation = &shot;
+		Shot();
 	}
 	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_REPEAT)
 	{
@@ -301,6 +277,21 @@ bool j1Player::CleanUp()
 	App->collision->EraseCollider(collider);
 
 	return true;
+}
+
+void j1Player::Shot()
+{
+	App->particles->AddParticle(App->particles->fire_ball, position.x +10, position.y + 20, COLLIDER_Fire_Ball, NULL, { 2,0 });
+}
+
+void j1Player::Thunder()
+{
+	App->particles->AddParticle(App->particles->fire_ball, position.x + 40, position.y + 40, COLLIDER_Fire_Ball, NULL, { 0,0 });
+}
+void j1Player::Ice()
+{
+	App->particles->AddParticle(App->particles->fire_ball, position.x + 45, position.y + 56, COLLIDER_Fire_Ball, NULL, { 0,0 });
+	App->particles->AddParticle(App->particles->fire_ball, position.x - 22, position.y + 56, COLLIDER_Fire_Ball, NULL, { 0,0 });
 }
 
 bool j1Player::Save(pugi::xml_node& save) const
