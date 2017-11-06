@@ -37,7 +37,13 @@ public:
 	SDL_Texture* graphics = nullptr;
 	Animation idle;
 	Animation run;
+	Animation attack;
+	Animation death;
+	Animation melee;
+	
+	Animation shot;
 	Animation jump;
+	Animation levitate;
 	Animation climb;
 	bool jumping = false;
 	bool climbing = false;
