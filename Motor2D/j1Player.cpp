@@ -10,6 +10,7 @@
 #include "j1Render.h"
 #include "j1Scene.h"
 #include "j1FadeToBlack.h"
+#include "ModuleCollision.h"
 
 
 j1Player::j1Player() : j1Module()
@@ -18,17 +19,21 @@ j1Player::j1Player() : j1Module()
 	name.create("player");
 	//IDLE
 	idle.PushBack({ 70,17,46,69 });
+
 	
 	idle.loop = 5.4f;
 
 	//RUN
 	
-	run.PushBack({ 146,17,46,69 });
-	run.PushBack({ 221,17,47,69 });
-	run.PushBack({ 47,107,39,68 });
-	run.PushBack({ 127,106,43,69 });
-	run.PushBack({ 208,106,45,68 });
-	run.PushBack({ 287,105,43,69 });
+	//run.PushBack({ 146,17,46,69 });
+	//run.PushBack({ 221,17,47,69 });
+	//run.PushBack({ 47,107,39,68 });
+	//run.PushBack({ 127,106,43,69 });
+	//run.PushBack({ 208,106,45,68 });
+	//run.PushBack({ 287,105,43,69 });
+	run.PushBack({ 127,106,46,69 });
+	run.PushBack({ 208,106,46,69 });
+	run.PushBack({ 287,105,46,69 });
 	
 
 	run.loop = 5.4f;
@@ -47,10 +52,12 @@ j1Player::j1Player() : j1Module()
 	
 	jump.loop = 5.4f;
 
+	//Levitate
 	levitate.PushBack({ 622,241,46,78 });
 	levitate.PushBack({ 689,240,46,79 });
 	levitate.PushBack({ 767,221,46,104 });
 	levitate.PushBack({833,200,45,166});
+	levitate.loop = 5.4f;
 
 	//CLIMB
 	climb.PushBack({550,272,75,128});
@@ -122,6 +129,7 @@ bool j1Player::Start()
 	LOG("Loading player textures");
 	
 	graphics = App->tex->Load("player/Player.png");
+	collider = App->collision->AddCollider({ position.x, position.y, 46, 69 }, COLLIDER_PLAYER, this);
 	return ret;
 }
 
@@ -281,8 +289,9 @@ bool j1Player::CleanUp()
 {
 	LOG("Unloading player");
 	SDL_DestroyTexture(graphics);
+
 	//App->textures->Unload(graphics);
-	//App->collision->EraseCollider(collider);
+	App->collision->EraseCollider(collider);
 
 	return true;
 }

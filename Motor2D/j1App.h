@@ -16,6 +16,7 @@ class j1Map;
 class j1Player;
 class Animation;
 class j1FadeToBlack;
+class ModuleCollision;
 
 class j1App
 {
@@ -88,6 +89,7 @@ public:
 	j1Map*				map;
 	j1Player*			player;
 	j1FadeToBlack*      fade;
+	ModuleCollision*    collision;
 
 private:
 

@@ -5,6 +5,7 @@
 #include "p2Point.h"
 #include "j1Module.h"
 #include "Animation.h"
+#include "ModuleCollision.h"
 
 class j1Player : public j1Module
 {
@@ -50,6 +51,8 @@ public:
 	uint gid;
 	SDL_RendererFlip flip;
 	bool firstUpdate = true;
+
+	Collider* collider;
 	//Collider* collider = nullptr;
 //	fPoint position;
 	
