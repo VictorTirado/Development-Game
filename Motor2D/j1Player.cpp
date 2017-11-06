@@ -74,22 +74,24 @@ j1Player::j1Player() : j1Module()
 	
 
 
-	/*attack.PushBack({ 29,377,49,69 });
-	attack.PushBack({ 84,377,49,69 });
-	attack.PushBack({ 149,377,49,71 });*/
 
-	/*attack.PushBack({ 257,377,49,71});
-	attack.PushBack({ 331,388,130,66 });
-	attack.PushBack({ 445,383,130,61 });
-	attack.PushBack({ 589,382,130,61 });
-*/
-	attack.PushBack({11,467,131,61});
-	attack.PushBack({ 186,467,131,61 });
-	attack.PushBack({ 336,467,131,61 });
-	attack.PushBack({ 499,465,133,62 });
+	attack.PushBack({ 29,377,49,69 });
+	attack.PushBack({ 84,377,49,69 });
+	attack.PushBack({ 149,379,49,69 });
+
+
+	attack.PushBack({ 256,375,50,69});
+	attack.PushBack({ 359,373,50,69 });
+	attack.PushBack({ 484,373,50,69 });
+	attack.PushBack({ 630,372,50,69 });
+
+	attack.PushBack({ 53,457,50,69 });
+	attack.PushBack({ 228,457,50,69 });
+	//attack.PushBack({ 336,467,131,61 });
+	/*attack.PushBack({ 499,465,133,62 });
 	attack.PushBack({ 648,464,135,61 });
 	attack.PushBack({ 814,465,135,61 });
-	attack.PushBack({ 967,467,148,61 });
+	attack.PushBack({ 967,467,148,61 });*/
 
 
 	melee.PushBack({ 442,98,46,69 });
