@@ -13,13 +13,13 @@ ModuleCollision::ModuleCollision()
 
 
 	matrix[COLLIDER_PLAYER][COLLIDER_PLAYER] = false;
-	matrix[COLLIDER_PLAYER][COLLIDER_Fire_Ball] = false;
+	matrix[COLLIDER_PLAYER][COLLIDER_ATTACK] = false;
 	
 
 
 
-	matrix[COLLIDER_Fire_Ball][COLLIDER_PLAYER] = false;
-	matrix[COLLIDER_Fire_Ball][COLLIDER_Fire_Ball] = false;
+	matrix[COLLIDER_ATTACK][COLLIDER_PLAYER] = false;
+	matrix[COLLIDER_ATTACK][COLLIDER_ATTACK] = false;
 
 }
 
@@ -112,7 +112,7 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_PLAYER: 
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
 			break;
-		case COLLIDER_Fire_Ball: 
+		case COLLIDER_ATTACK:
 			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
 			break;
 		

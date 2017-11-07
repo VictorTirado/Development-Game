@@ -20,10 +20,50 @@ j1Particles::j1Particles()
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
 
-//	fire_ball.anim.PushBack({ 448,584,26,17});
+	fire_ball.anim.PushBack({ 448,584,26,17});
 	fire_ball.anim.PushBack({ 482,584,26,17 });
 	fire_ball.anim.PushBack({ 516,584,26,17 });
 	fire_ball.anim.PushBack({ 549,584,26,17 });
+
+	thunder.anim.PushBack({ 0,0,70,14 });
+	thunder.anim.PushBack({ 0,0,70,14 });
+	thunder.anim.PushBack({0,0,70,14});
+	thunder.anim.speed = 0.5f;
+
+	iceL.anim.PushBack({ 0,0,41,45 });
+	iceL.anim.PushBack({ 0,0,41,45 });
+	iceL.anim.PushBack({ 0,0,41,45 });
+	iceL.anim.PushBack({ 0,0,41,45 });
+	iceL.anim.PushBack({318,398,41,45});
+	iceL.anim.PushBack({ 442,398,41,45 });
+	iceL.anim.PushBack({ 588,397,41,45 });
+	iceL.anim.PushBack({ 11,482,41,45 });
+	iceL.anim.PushBack({ 186,482,41,45 });
+	iceL.anim.PushBack({ 336,482,41,45 });
+	iceL.anim.PushBack({ 499,482,41,45 });
+	iceL.anim.PushBack({ 648,482,41,45 });
+	iceL.anim.PushBack({ 814,482,41,45 });
+	iceL.anim.PushBack({ 966,482,41,45 });
+	iceL.anim.speed = 0.1f;
+
+
+	iceR.anim.PushBack({ 0,0,41,45 });
+	iceR.anim.PushBack({ 0,0,41,45 });
+	iceR.anim.PushBack({ 0,0,41,45 });
+	iceR.anim.PushBack({ 0,0,41,45 });
+	iceR.anim.PushBack({ 409,398,20,45 });
+	iceR.anim.PushBack({ 533,398,41,45 });
+	iceR.anim.PushBack({ 678,398,41,45 });
+	iceR.anim.PushBack({ 102,482,41,45 });
+	iceR.anim.PushBack({ 276,482,41,45 });
+	iceR.anim.PushBack({ 426,482,41,45 });
+	iceR.anim.PushBack({ 591,482,41,45 });
+	iceR.anim.PushBack({ 742,482,41,45 });
+	iceR.anim.PushBack({ 908,482,41,45 });
+	iceR.anim.PushBack({ 1074,482,41,45 });
+	iceR.anim.speed= 0.1f;
+	
+	
 }
 
 j1Particles::~j1Particles(){}

@@ -50,6 +50,9 @@ private:
 
 public:
 	Particle fire_ball;
+	Particle iceL;
+	Particle iceR;
+	Particle thunder;
 
 };
 

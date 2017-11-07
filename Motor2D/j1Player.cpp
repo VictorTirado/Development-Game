@@ -65,7 +65,7 @@ j1Player::j1Player() : j1Module()
 	attack.PushBack({ 692,454,50,69 });
 	attack.PushBack({ 858,455,50,69 });
 	attack.PushBack({ 1017,457,50,69 });
-	attack.speed = 0.05f;
+	attack.speed = 0.1f;
 
 	//THUNDER
 	melee.PushBack({ 442,98,46,69 });
@@ -73,7 +73,7 @@ j1Player::j1Player() : j1Module()
 	melee.PushBack({ 558,98,100,69 });
 	melee.PushBack({ 675,104,127,69 });
 	melee.PushBack({ 821,109,100,69 });
-	melee.loop = 0.0f;
+	melee.speed = 0.15f;
 
 	//FIRE
 	shot.PushBack({ 22,550,46,69 });
@@ -133,7 +133,7 @@ bool j1Player::Update(float dt)
 	current_animation = &idle;
 	flip = SDL_FLIP_NONE;
 	
-	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT)
+	if (App->input->GetKey(SDL_SCANCODE_A) == KEY_REPEAT && current_animation)
 	{
 		current_animation = &run;
 		if (App->map->data.maplayers.end->data->data[gid - 1] != 38) {
@@ -143,7 +143,7 @@ bool j1Player::Update(float dt)
 		flip = SDL_FLIP_HORIZONTAL;
 	}
 	
-	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT)
+	if (App->input->GetKey(SDL_SCANCODE_D) == KEY_REPEAT && current_animation != &attack)
 	{
 		current_animation = &run;
 		if (App->map->data.maplayers.end->data->data[gid+1]!=38) {
@@ -151,15 +151,18 @@ bool j1Player::Update(float dt)
 			App->render->camera.x = -position.x + (App->win->screen_surface->w / 2);
 		}
 	}
-	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT)
+	if (App->input->GetKey(SDL_SCANCODE_Q) == KEY_REPEAT && jumping==false)
 	{
+	
 		current_animation = &attack;
 		Ice();
 
 	}
+
 	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &melee)
 	{
 		attackingMelee = true;
+		Thunder();
 	}
 	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shot)
 	{
@@ -186,7 +189,7 @@ bool j1Player::Update(float dt)
 			App->render->camera.y = App->render->camera.y + speed * 4;
 		}
 	}
-	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT && current_animation != &jump)
+	if (App->input->GetKey(SDL_SCANCODE_SPACE) == KEY_REPEAT && current_animation != &jump && current_animation != &attack)
 	{
 		jumping = true;
 	}
@@ -304,17 +307,17 @@ bool j1Player::CleanUp()
 
 void j1Player::Shot()
 {
-	App->particles->AddParticle(App->particles->fire_ball, position.x +10, position.y + 20, COLLIDER_Fire_Ball, NULL, { 5,0 });
+	App->particles->AddParticle(App->particles->fire_ball, position.x +10, position.y + 20, COLLIDER_ATTACK, NULL, { 5,0 });
 }
 
 void j1Player::Thunder()
 {
-	App->particles->AddParticle(App->particles->fire_ball, position.x + 40, position.y + 40, COLLIDER_Fire_Ball, NULL, { 0,0 });
+	App->particles->AddParticle(App->particles->thunder, position.x + 60, position.y + 40, COLLIDER_ATTACK, NULL, { 0,0 });
 }
 void j1Player::Ice()
 {
-	App->particles->AddParticle(App->particles->fire_ball, position.x + 45, position.y + 56, COLLIDER_Fire_Ball, NULL, { 0,0 });
-	App->particles->AddParticle(App->particles->fire_ball, position.x - 22, position.y + 56, COLLIDER_Fire_Ball, NULL, { 0,0 });
+	App->particles->AddParticle(App->particles->iceR, position.x + 45, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 });
+	App->particles->AddParticle(App->particles->iceL, position.x - 41, position.y + 25, COLLIDER_ATTACK, NULL, { 0,0 });
 }
 
 bool j1Player::Save(pugi::xml_node& save) const

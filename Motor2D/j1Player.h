@@ -48,6 +48,7 @@ public:
 	Animation jump;
 	Animation levitate;
 	Animation climb;
+	
 	bool jumping = false;
 	bool climbing = false;
 	bool attackingMelee = false;
