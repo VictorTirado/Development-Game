@@ -259,6 +259,9 @@ bool j1Player::Update(float dt)
 	collider->SetPos(position.x , position.y);
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()),1, flip);
 
+	
+	//App->render->Blit(graphics, App->particles->fire_ball.position.x, App->particles->fire_ball.position.y, &(App->particles->fire_ball.anim.GetCurrentFrame()), 1);
+
 	return ret;
 }
 
@@ -281,7 +284,7 @@ bool j1Player::CleanUp()
 
 void j1Player::Shot()
 {
-	App->particles->AddParticle(App->particles->fire_ball, position.x +10, position.y + 20, COLLIDER_Fire_Ball, NULL, { 2,0 });
+	App->particles->AddParticle(App->particles->fire_ball, position.x +10, position.y + 20, COLLIDER_Fire_Ball, NULL, { 5,0 });
 }
 
 void j1Player::Thunder()

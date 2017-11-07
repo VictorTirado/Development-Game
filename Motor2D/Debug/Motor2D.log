@@ -1,6 +1,7 @@
-﻿  j1Player.cpp
-c:\users\usuario\documents\github\development-game\motor2d\j1player.cpp(124): warning C4244: '=': conversión de 'double' a 'int'; posible pérdida de datos
-c:\users\usuario\documents\github\development-game\motor2d\j1player.cpp(318): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-c:\users\usuario\documents\github\development-game\motor2d\j1player.cpp(319): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-  Motor2D.vcxproj -> C:\Users\Usuario\Documents\GitHub\Development-Game\Debug\Motor 2D.exe
-  Motor2D.vcxproj -> C:\Users\Usuario\Documents\GitHub\Development-Game\Debug\Motor 2D.pdb (Partial PDB)
+﻿  j1Particles.cpp
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1particles.cpp(52): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1particles.cpp(53): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1particles.cpp(80): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+c:\users\usuario\desktop\desarrollo\development-game\motor2d\j1particles.cpp(138): warning C4244: 'argumento': conversión de 'float' a 'int'; posible pérdida de datos
+  Motor2D.vcxproj -> C:\Users\USUARIO\Desktop\Desarrollo\Development-Game\Debug\Motor 2D.exe
+  Motor2D.vcxproj -> C:\Users\USUARIO\Desktop\Desarrollo\Development-Game\Debug\Motor 2D.pdb (Partial PDB)

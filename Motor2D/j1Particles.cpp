@@ -20,7 +20,7 @@ j1Particles::j1Particles()
 	for (uint i = 0; i < MAX_ACTIVE_PARTICLES; ++i)
 		active[i] = nullptr;
 
-	fire_ball.anim.PushBack({ 452,587,22,13});
+//	fire_ball.anim.PushBack({ 448,584,26,17});
 	fire_ball.anim.PushBack({ 482,584,26,17 });
 	fire_ball.anim.PushBack({ 516,584,26,17 });
 	fire_ball.anim.PushBack({ 549,584,26,17 });
@@ -77,7 +77,7 @@ void j1Particles::AddParticle(const Particle& particle, int x, int y, COLLIDER_T
 		}
 		else if (SDL_GetTicks() >= p->born)
 		{
-			//App->render->Blit(graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
+			App->render->Blit(App->player->graphics, p->position.x, p->position.y, &(p->anim.GetCurrentFrame()));
 		}
 	}
 
@@ -129,6 +129,7 @@ bool Particle::Update()
 	else
 		if (anim.Finished())
 			ret = false;
+
 
 	position.x += speed.x;
 	position.y += speed.y;
