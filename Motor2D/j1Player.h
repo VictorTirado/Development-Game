@@ -50,6 +50,8 @@ public:
 	Animation climb;
 	bool jumping = false;
 	bool climbing = false;
+	bool attackingMelee = false;
+	bool shooting = false;
 	uint gid;
 	SDL_RendererFlip flip;
 	bool firstUpdate = true;

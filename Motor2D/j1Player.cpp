@@ -40,6 +40,7 @@ j1Player::j1Player() : j1Module()
 	jump.PushBack({ 170,189,44,78 });
 	
 	jump.speed=0.10f;
+	jump.loop = 0.0f;
 
 	//Levitate
 	levitate.PushBack({ 622,241,46,78 });
@@ -72,6 +73,7 @@ j1Player::j1Player() : j1Module()
 	melee.PushBack({ 558,98,100,69 });
 	melee.PushBack({ 675,104,127,69 });
 	melee.PushBack({ 821,109,100,69 });
+	melee.loop = 0.0f;
 
 	//FIRE
 	shot.PushBack({ 22,550,46,69 });
@@ -80,6 +82,7 @@ j1Player::j1Player() : j1Module()
 	shot.PushBack({ 232,554,56,70 });
 	shot.PushBack({ 315,555,49,69 });
 	shot.PushBack({ 385,556,46,69 });
+	//shot.loop = 0.0f;
 
 	//DEATH
 	death.PushBack({ 38,282,46,69 });
@@ -152,16 +155,17 @@ bool j1Player::Update(float dt)
 	{
 		current_animation = &attack;
 		Ice();
+
 	}
-	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT)
+	if (App->input->GetKey(SDL_SCANCODE_T) == KEY_REPEAT && current_animation != &melee)
 	{
-		current_animation = &melee;
-		Thunder();
+		attackingMelee = true;
 	}
-	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_DOWN)
+	if (App->input->GetKey(SDL_SCANCODE_Y) == KEY_REPEAT && current_animation != &shot)
 	{
-		current_animation = &shot;
-		Shot();
+		shooting = true;
+		//current_animation = &shot;
+		//Shot();
 	}
 	if (App->input->GetKey(SDL_SCANCODE_U) == KEY_REPEAT)
 	{
@@ -219,6 +223,26 @@ bool j1Player::Update(float dt)
 		}
 	}
 
+	if (attackingMelee == true) {
+		current_animation = &melee;
+		Thunder();
+		if (melee.Finished() == true) {
+			attackingMelee = false;
+		}
+	}
+	else
+		melee.Reset();
+
+	if (shooting == true) {
+		current_animation = &shot;
+		if (shot.Finished() == true) {
+			Shot();
+			shooting = false;
+		}
+	}
+	else
+		shot.Reset();
+
 
 	if (App->map->data.maplayers.end->data->data[gid + 50+1] != 38 && jumping == false && climbing==false) {
 		current_animation = &jump;
@@ -229,7 +253,6 @@ bool j1Player::Update(float dt)
 			firstUpdate = true;
 		}
 	}
-	jump.Reset();
 
 	if (App->map->data.maplayers.end->data->data[gid] == 55) {
 		App->collision->EraseCollider(collider);
@@ -258,9 +281,6 @@ bool j1Player::Update(float dt)
 	}
 	collider->SetPos(position.x , position.y);
 	App->render->Blit(graphics, position.x, position.y, &(current_animation->GetCurrentFrame()),1, flip);
-
-	
-	//App->render->Blit(graphics, App->particles->fire_ball.position.x, App->particles->fire_ball.position.y, &(App->particles->fire_ball.anim.GetCurrentFrame()), 1);
 
 	return ret;
 }
