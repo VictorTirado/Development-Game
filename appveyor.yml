@@ -1,3 +1,6 @@
 version: 1.0.{build}
 build:
   verbosity: minimal
+  after_build:
+- 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Development-Game\Debug\Motor2D.exe"
+- 7z a SpikeFromAppveyor.zip "%APPVEYOR_BUILD_FOLDER%\Development-Game\Game"
